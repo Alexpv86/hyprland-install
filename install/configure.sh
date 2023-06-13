@@ -19,7 +19,7 @@ function make_symlink() {
         return
     fi
 
-    if [ -d ${1} ] || [ -f ${1} ];then
+    if [ ! -d ${1} ] && [ ! -f ${1} ];then
         echo "Файл/папка ${1} не существует"
         return
     fi
@@ -53,6 +53,8 @@ make_symlink "${CONFIG_WORK_DIR}/.oh-my-zsh" "${HOME}/.oh-my-zsh"
 make_symlink "${CONFIG_WORK_DIR}/.p10k.zsh" "${HOME}/.p10k.zsh"
 make_symlink "${CONFIG_WORK_DIR}/.zshrc" "${HOME}/.zshrc"
 make_symlink "${CONFIG_WORK_DIR}/powerlevel10k" "${HOME}/powerlevel10k"
+
+make_symlink "${CONFIG_WORK_DIR}/wpaperd" "${CONFIG_HOME_DIR}/wpaperd"
 
 make_symlink "${WORKDIR}/home/Wallpapers" "${HOME}/Wallpapers"
 
